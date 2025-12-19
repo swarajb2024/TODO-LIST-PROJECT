@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    <div class="signup-login">
+        <div class="signup-box signup-box-auth">
+
+            <!-- TITLE -->
+            <h1 class="auth-title">Login</h1>
+            <hr class="line">
+
+            <!-- FORM -->
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="field">
+                    <label>Username</label>
+                    <input type="text" class="inp" name="fnm" required placeholder="Enter your username">
+                </div>
+
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" class="inp" name="pwd" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="submit-button">Login</button>
+            </form>
+
+            <hr class="line">
+
+            <!-- FOOTER TEXT -->
+            <p class="auth-text">
+                Don't have an account?
+                <a href="{% url 'signup' %}" class="auth-link">SignUp</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

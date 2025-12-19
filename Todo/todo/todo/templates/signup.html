@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Signup</title>
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    <div class="signup-login">
+        <div class="signup-box signup-box-auth">
+
+            <!-- TITLE -->
+            <h1 class="auth-title">SignUp</h1>
+            <hr class="line">
+
+            <!-- FORM -->
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="field">
+                    <label>Username</label>
+                    <input class="inp" type="text" name="fnm" required placeholder="Enter your full name">
+                </div>
+
+                <div class="field">
+                    <label>Email</label>
+                    <input class="inp" type="email" name="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="field">
+                    <label>Password</label>
+                    <input class="inp" type="password" name="pwd" required placeholder="Enter password">
+                </div>
+
+                <button type="submit" class="submit-button">Signup</button>
+            </form>
+
+            <hr class="line">
+
+            <!-- FOOTER TEXT -->
+            <p class="auth-text">
+                Already have an account?
+                <a href="{% url 'login' %}" class="auth-link">Login</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

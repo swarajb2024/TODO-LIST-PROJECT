@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <div class="user-title">
+            <h1>Hello {{ user.username }}</h1>
+        </div>
+
+        <div class="signup-login">
+            <div class="signup-box">
+
+                <div class="card-header">
+                    <h2 class="card-title">Get Things Done?</h2>
+
+                    <a href="{% url 'signout' %}" class="logout-icon" title="Logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </a>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" class="inp" name="title" placeholder="What is the task today?" required>
+
+                    <button type="submit" class="submit-button">Add Task</button>
+                </form>
+
+                <hr class="line">
+
+                {% for todo in rest %}
+                <div class="Todo">
+
+                    <span class="todo-title">{{ todo.title }}</span>
+
+                    <div class="todo-actions">
+                        <a href="{% url 'edit_todo' todo.sr_no %}" title="Edit">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <a href="{% url 'delete_todo' todo.sr_no %}" title="Delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+
+                </div>
+                {% empty %}
+                <p>No tasks added yet.</p>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
