@@ -1,5 +1,5 @@
 # TODO-LIST-PROJECT
-# TODO-LIST A To-Do List web application built using Django that allows users to create, update, and delete tasks efficiently. It helps users manage daily activities with a simple and user-friendly interface.
+A To-Do List web application built using Django that allows users to create, update, and delete tasks efficiently. It helps users manage daily activities with a simple and user-friendly interface.
 
 ![Project Image](https://github.com/swarajb2024/TODO-LIST-PROJECT/blob/68268befd0a9067eeed2059ce542724cd6206d5c/Screenshot%202025-12-19%20221302.png)
 
